@@ -6,7 +6,7 @@ public class PetDatabase {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // ArrayList to hold pets (declare ONCE)
+        // ArrayList to hold pets
         ArrayList<Pet> pets = new ArrayList<>();
 
         while (true) {
