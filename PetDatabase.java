@@ -13,7 +13,9 @@ public class PetDatabase {
 
             System.out.println("\n1. Add pets");
             System.out.println("2. View pets");
-            System.out.println("3. Exit");
+            System.out.println("3. Searrch by name");
+            System.out.println("4. Search by age");
+            System.out.println("5. Exit");
             System.out.print("Enter choice: ");
 
             int choice = Integer.parseInt(scanner.nextLine());
@@ -54,6 +56,43 @@ public class PetDatabase {
                     break;
 
                 case 3:
+                    //allows to search for pet through the name
+                    System.out.print("\nEnter pet name to search: ");
+                    String search = scanner.nextLine();
+                    boolean found = false;
+
+                    //loop throuh all pets and check if any of the names match
+                    for (Pet p : pets) {
+                        if (p.getName().equals(search)) {
+                            System.out.println("Found: " + p.getName() + " " + p.getAge());
+                            found = true;
+                        }
+                    }
+
+                    //if name is not found returns and lets the user know
+                    if (!found) {
+                        System.out.println("No pet found with that name.");
+                    }
+                    break;    
+
+                case 4:
+                    System.out.print("\nEnter pet age to search: ");
+                    int ageSearch = Integer.parseInt(scanner.nextLine());
+                    boolean foundAge = false;
+
+                    for (Pet p : pets) {
+                        if (p.getAge() == ageSearch) {
+                            System.out.println("Found: " + p.getName() + " " + p.getAge());
+                            foundAge = true;
+                        }
+                    }
+
+                    if (!foundAge) {
+                        System.out.println("No pet found with that age.");
+                    }
+                    break;
+
+                case 5:
                     // Exit
                     System.out.println("Goodbye!");
                     return;
@@ -61,6 +100,6 @@ public class PetDatabase {
                 default:
                     System.out.println("Invalid choice.");
             }
-        }
+        } 
     }
 }
