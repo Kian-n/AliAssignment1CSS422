@@ -29,17 +29,34 @@ public class PetDatabase {
                     // Add pets
                     while (true) {
 
-                        System.out.print("Enter pet name (or 'done'): ");
-                        String name = scanner.nextLine();
-
-                        if (name.equals("done")) {
-                            break;
+                        if (pets.size() >= 5) { 
+                            System.out.println("Database is full. Ali Pet Databse allows 5 pets only."); 
+                            break; 
                         }
 
-                        System.out.print("Enter pet age: ");
-                        int age = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Enter pet name and age (or 'done'): ");
+                        String line = scanner.nextLine();
+
+                        if (line.equals("done")) {
+                            break;
+                        }
+                        String[] parts = line.split(" ");
+
+                        if (parts.length != 2) {
+                            System.out.println("Invalid input. Enter: name age");
+                            continue;
+                        }
+
+                        String name = parts[0];
+                        int age = Integer.parseInt(parts[1]);
+
+                        if (age < 1 || age > 20) {
+                            System.out.println("Invalid age. Age must be between 1 and 20.");
+                            continue;
+                        }
 
                         pets.add(new Pet(name, age));
+                        System.out.println("Pet added.");
                     }
                     break;
 
