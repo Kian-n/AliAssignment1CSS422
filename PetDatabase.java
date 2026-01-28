@@ -30,7 +30,7 @@ public class PetDatabase {
                     while (true) {
 
                         if (pets.size() >= 5) { 
-                            System.out.println("Database is full. Ali Pet Databse allows 5 pets only."); 
+                            System.out.println("Error!! Database is full. Ali Pet Databse allows 5 pets only."); 
                             break; 
                         }
 
@@ -51,7 +51,7 @@ public class PetDatabase {
                         int age = Integer.parseInt(parts[1]);
 
                         if (age < 1 || age > 20) {
-                            System.out.println("Invalid age. Age must be between 1 and 20.");
+                            System.out.println("Error!! Age must be between 1 and 20.");
                             continue;
                         }
 
@@ -99,7 +99,7 @@ public class PetDatabase {
 
                     // if name is not found returns and lets the user know
                     if (!found) {
-                        System.out.println("No pet found with that name.");
+                        System.out.println("Error! No pet found with that name.");
                     }
                     break;
 
@@ -117,7 +117,7 @@ public class PetDatabase {
                     }
 
                     if (!foundAge) {
-                        System.out.println("No pet found with that age.");
+                        System.out.println("Error! No pet found with that age.");
                     }
                     break;
 
@@ -165,7 +165,7 @@ public class PetDatabase {
                     return;
 
                 default:
-                    System.out.println("Invalid! Please pick a number from 1-7");
+                    System.out.println("Error! Please pick a number from 1-7");
             }
         }
     }
